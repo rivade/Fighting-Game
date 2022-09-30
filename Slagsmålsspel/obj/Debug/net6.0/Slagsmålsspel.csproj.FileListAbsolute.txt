@@ -1,0 +1,15 @@
+C:\Users\theo.lindqvist\Documents\NTI Programmering\Slagsmålsspel\Slagsmålsspel\obj\Debug\net6.0\Slagsmålsspel.csproj.AssemblyReference.cache
+C:\Users\theo.lindqvist\Documents\NTI Programmering\Slagsmålsspel\Slagsmålsspel\obj\Debug\net6.0\Slagsmålsspel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\theo.lindqvist\Documents\NTI Programmering\Slagsmålsspel\Slagsmålsspel\bin\Debug\net6.0\Slagsmålsspel.exe
+C:\Users\theo.lindqvist\Documents\NTI Programmering\Slagsmålsspel\Slagsmålsspel\bin\Debug\net6.0\Slagsmålsspel.deps.json
+C:\Users\theo.lindqvist\Documents\NTI Programmering\Slagsmålsspel\Slagsmålsspel\bin\Debug\net6.0\Slagsmålsspel.runtimeconfig.json
+C:\Users\theo.lindqvist\Documents\NTI Programmering\Slagsmålsspel\Slagsmålsspel\bin\Debug\net6.0\Slagsmålsspel.dll
+C:\Users\theo.lindqvist\Documents\NTI Programmering\Slagsmålsspel\Slagsmålsspel\bin\Debug\net6.0\Slagsmålsspel.pdb
+C:\Users\theo.lindqvist\Documents\NTI Programmering\Slagsmålsspel\Slagsmålsspel\obj\Debug\net6.0\Slagsmålsspel.AssemblyInfoInputs.cache
+C:\Users\theo.lindqvist\Documents\NTI Programmering\Slagsmålsspel\Slagsmålsspel\obj\Debug\net6.0\Slagsmålsspel.AssemblyInfo.cs
+C:\Users\theo.lindqvist\Documents\NTI Programmering\Slagsmålsspel\Slagsmålsspel\obj\Debug\net6.0\Slagsmålsspel.csproj.CoreCompileInputs.cache
+C:\Users\theo.lindqvist\Documents\NTI Programmering\Slagsmålsspel\Slagsmålsspel\obj\Debug\net6.0\Slagsmålsspel.dll
+C:\Users\theo.lindqvist\Documents\NTI Programmering\Slagsmålsspel\Slagsmålsspel\obj\Debug\net6.0\refint\Slagsmålsspel.dll
+C:\Users\theo.lindqvist\Documents\NTI Programmering\Slagsmålsspel\Slagsmålsspel\obj\Debug\net6.0\Slagsmålsspel.pdb
+C:\Users\theo.lindqvist\Documents\NTI Programmering\Slagsmålsspel\Slagsmålsspel\obj\Debug\net6.0\Slagsmålsspel.genruntimeconfig.cache
+C:\Users\theo.lindqvist\Documents\NTI Programmering\Slagsmålsspel\Slagsmålsspel\obj\Debug\net6.0\ref\Slagsmålsspel.dll
