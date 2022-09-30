@@ -105,9 +105,7 @@ if (begin == "n")
     Console.ReadLine();
     System.Environment.Exit(1);
 }
-
-
-
+///////////////////////////////////////////////////////////////////////////
 int active = 1;
 while (active == 1)
 {
@@ -172,6 +170,7 @@ while (active == 1)
         active = 0;
     }
 }
+///////////////////////////////////////////////////////////////////////////
 Console.WriteLine("Tack för att du spelade!");
 Console.WriteLine("Tryck enter för att stänga programmet.");
 Console.ReadLine();
