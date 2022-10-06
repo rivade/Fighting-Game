@@ -43,19 +43,26 @@ static int Fight(int health, int opphealth, int firststrike)
 
         if (attack == "a"){
             damage = hit.Next(20, 31);
+            Console.WriteLine("Du slår din motståndare!");
         }
         if (attack == "b"){
             damage = hit.Next(10, 41);
+            Console.WriteLine("Du sparkar din motståndare!");
         }
         if (attack == "c"){
             damage = hit.Next(0, 51);
+            Console.WriteLine("Du knäar din motståndare!");
         }
-        int crit = hit.Next(1, 11);
-        Console.WriteLine("Du attackerar din motståndare!");
+        int crit = hit.Next(1, 16);
         if (crit == 5){
             Console.WriteLine("Kritisk träff!");
             Console.WriteLine("Du knockade din motståndare!");
             break;
+        }
+        int miss = hit.Next(1, 6);
+        if (miss == 5){
+            Console.WriteLine("Du missade!");
+            damage = 0;
         }
         opphealth -= damage;
         Console.WriteLine($"Din attack gjorde {damage} skada!");
