@@ -3,15 +3,15 @@ static string OpponentName(int opponent)
 {
     if (opponent == 1)
     {
-        return "Roxanna";
+        return "Michael";
     }
     else if (opponent == 2)
     {
-        return "Noor";
+        return "Daniel";
     }
     else
     {
-        return "Fatmah";
+        return "Harry";
     }
 }
 static int Fight(int health, int opphealth, int firststrike, string name, string oppName)
@@ -21,15 +21,9 @@ static int Fight(int health, int opphealth, int firststrike, string name, string
     int miss = 0;
     if (firststrike == 1)
     {
-        int slap = hit.Next(5, 16);
-        health -= slap;
-        Console.WriteLine($"Det gjorde {slap} skada!");
-        if (health < 0){
-            Console.WriteLine("Du har nu 0 hp.");
-        }
-        else{
-            Console.WriteLine($"Du har nu {health} hp.");
-        }
+        int punch = hit.Next(20, 31);
+        health -= punch;
+        Console.WriteLine($"Det gjorde {punch} skada!");
         Console.WriteLine();
     }
     Console.WriteLine("Tryck enter för att fortsätta.");
@@ -179,8 +173,8 @@ while (active == 1)
     string oppName = OpponentName(num);
     Console.Clear();
     Console.WriteLine("Du är ute och går på promenad, när någon kommer fram till dig.");
-    Console.WriteLine($"{oppName}: Har do cigg?");
-    Console.WriteLine("Vad svarar du? [y/n] ");
+    Console.WriteLine($"{oppName}: Hörru grabben, vart tror du att du är påväg");
+    Console.WriteLine("Vill du börja? [y/n] ");
     string begin = Console.ReadLine().ToLower();
     while (begin != "y" && begin != "n")
     {
@@ -190,9 +184,9 @@ while (active == 1)
     Console.Clear();
     if (begin == "n")
     {
-        Console.WriteLine(char.ToUpper(name[0]) + name.Substring(1) + ": Nej tyvärr, jag har inte det är jag rädd");
-        Console.WriteLine($"{oppName}: EY DU JAG KNOLLAR DIG");
-        Console.WriteLine($"{oppName} bitchslapar dig!");
+        Console.WriteLine(char.ToUpper(name[0]) + name.Substring(1) + ": Jag måste hem, hej då!");
+        Console.WriteLine($"{oppName}: Du ska ingenstans!");
+        Console.WriteLine($"{oppName} slår dig!");
         Console.WriteLine();
         int winCheck = Fight(100, 100, 1, name, oppName);
         Console.Clear();
