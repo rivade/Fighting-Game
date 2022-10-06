@@ -14,7 +14,7 @@ static string OpponentName(int opponent)
         return "Fatmah";
     }
 }
-static int Fight(int health, int opphealth, int firststrike)
+static int Fight(int health, int opphealth, int firststrike, string name, string oppName)
 {
     Random hit = new Random();
     int damage = 0;
@@ -31,7 +31,14 @@ static int Fight(int health, int opphealth, int firststrike)
         }
         Console.WriteLine();
     }
+    Console.WriteLine("Tryck enter för att fortsätta.");
+    Console.ReadLine();
     while (health > 0){
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine(char.ToUpper(name[0]) + name.Substring(1) + $": {health} HP          {oppName}: {opphealth} HP");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine();
         Console.WriteLine("Du går till attack!");
         Console.WriteLine("Välj alternativ nedan.");
         Console.WriteLine("[A] Slag (20-30 damage)   [B] Spark (10-40 damage)  [C] Knä (1-50 damage)");
@@ -40,34 +47,35 @@ static int Fight(int health, int opphealth, int firststrike)
             Console.WriteLine("Du måste välja antingen a, b eller c.");
             attack = Console.ReadLine().ToLower();
         }
-
-        if (attack == "a"){
-            damage = hit.Next(20, 31);
-            Console.WriteLine("Du slår din motståndare!");
-        }
-        if (attack == "b"){
-            damage = hit.Next(10, 41);
-            Console.WriteLine("Du sparkar din motståndare!");
-        }
-        if (attack == "c"){
-            damage = hit.Next(1, 51);
-            Console.WriteLine("Du knäar din motståndare!");
-        }
-        int crit = hit.Next(1, 16);
-        if (crit == 5){
+        switch(attack){
+            case "a":
+                damage = hit.Next(20, 31);
+                Console.WriteLine("Du slår din motståndare!");
+            break;
+            case "b":
+                damage = hit.Next(10, 41);
+                Console.WriteLine("Du sparkar din motståndare!");
+            break;
+            case "c":
+                damage = hit.Next(1, 51);
+                Console.WriteLine("Du knäar din motståndare!");
+            break;
+        }    
+        int crit = hit.Next(1, 21);
+        if (crit == 1){
             Console.WriteLine("Kritisk träff!");
             Console.WriteLine("Du knockade din motståndare!");
+            opphealth = 0;
             break;
         }
         int miss = hit.Next(1, 6);
-        if (miss == 5){
+        if (miss == 1){
             Console.WriteLine("Du missade!");
             damage = 0;
         }
         opphealth -= damage;
         Console.WriteLine($"Din attack gjorde {damage} skada!");
         if (opphealth > 0){
-            Console.WriteLine($"Din motståndare har nu {opphealth} hp.");
             Console.WriteLine("Tryck enter för att fortsätta");
             Console.ReadLine();
         }
@@ -75,23 +83,26 @@ static int Fight(int health, int opphealth, int firststrike)
             break;
         }
         int oppattack = hit.Next(1, 4);
-        if (oppattack == 1){
-            damage = hit.Next(20, 31);
-            Console.WriteLine("Din motståndare slår dig!");
+        switch(oppattack){
+            case 1:
+                damage = hit.Next(20, 31);
+                Console.WriteLine("Din motståndare slår dig!");
+            break;
+            case 2:
+                damage = hit.Next(10, 41);
+                Console.WriteLine("Din motståndare sparkar dig!");
+            break;
+            case 3:
+                damage = hit.Next(1, 51);
+                Console.WriteLine("Din motståndare knäar dig!");
+            break;
         }
-        if (oppattack == 2){
-            damage = hit.Next(10, 41);
-            Console.WriteLine("Din motståndare sparkar dig!");
-        }
-        if (oppattack == 3){
-            damage = hit.Next(1, 51);
-            Console.WriteLine("Din motståndare knäar dig!");
-        }
-        crit = hit.Next(1, 16);
+        crit = hit.Next(1, 21);
         if (crit == 5){
             Console.WriteLine("Kritisk träff!");
             Console.WriteLine("Din motståndare knockar dig!");
             health = 0;
+            break;
         }
         miss = hit.Next(1, 6);
         if (miss == 5){
@@ -101,16 +112,11 @@ static int Fight(int health, int opphealth, int firststrike)
         
         Console.WriteLine($"Det gjorde {damage} skada!");
         health -= damage;
-        if (health > 0){
-            Console.WriteLine($"Du har nu {health} hp.");
-        }
-        else{
-            Console.WriteLine("Du har nu 0 hp.");
-        }
         Console.WriteLine("Tryck enter för att fortsätta");
         Console.ReadLine();
     }
-    if (health > 0){
+    Console.WriteLine();
+    if (health > opphealth){
         Console.WriteLine("Grattis, du besegrade din motståndare!");
         Console.WriteLine("Tryck enter för att fortsätta.");
         Console.ReadLine();
@@ -173,7 +179,7 @@ while (active == 1)
         Console.WriteLine($"{oppName}: EY DU JAG KNOLLAR DAJ");
         Console.WriteLine($"{oppName} bitchslapar dig");
         Console.WriteLine();
-        int winCheck = Fight(100, 100, 1);
+        int winCheck = Fight(100, 100, 1, name, oppName);
         Console.Clear();
         if (winCheck == 1){
             Console.WriteLine("Grattis "+ char.ToUpper(name[0]) + name.Substring(1) + ", du vann!");
@@ -186,7 +192,7 @@ while (active == 1)
     {
         Console.WriteLine(char.ToUpper(name[0]) + name.Substring(1) + ": Jo men det tror jag!");
         Console.WriteLine($"Du sträcker ned handen i fickan, och när {oppName} inte tittar gör du dig redo att slåss!");
-        int winCheck = Fight(100, 100, 0);
+        int winCheck = Fight(100, 100, 0, name, oppName);
         Console.Clear();
         if (winCheck == 1){
             Console.WriteLine("Grattis "+ char.ToUpper(name[0]) + name.Substring(1) + ", du vann!");
