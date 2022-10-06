@@ -192,6 +192,7 @@ while (active == 1)
         Console.Clear();
         if (winCheck == 1){
             Console.WriteLine("Grattis "+ char.ToUpper(name[0]) + name.Substring(1) + ", du vann!");
+            wins += 1;
         }
         else{
             Console.WriteLine($"Tyvärr " + char.ToUpper(name[0]) + name.Substring(1) + ", du förlorade!");
@@ -199,8 +200,8 @@ while (active == 1)
     }
     else
     {
-        Console.WriteLine(char.ToUpper(name[0]) + name.Substring(1) + ": Jo men det tror jag!");
-        Console.WriteLine($"Du sträcker ned handen i fickan, och när {oppName} inte tittar gör du dig redo att slåss!");
+        Console.WriteLine(char.ToUpper(name[0]) + name.Substring(1) + ": Det undrar du allt va?");
+        Console.WriteLine($"{oppName} blir distraherad, och du gör dig redo att slåss!");
         int winCheck = Fight(100, 100, 0, name, oppName);
         Console.Clear();
         if (winCheck == 1){
