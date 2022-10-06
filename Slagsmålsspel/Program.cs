@@ -160,12 +160,8 @@ $$/       $$/  $$$$$$$ |$$/   $$/    $$$$/  $$/ $$/   $$/  $$$$$$$ |       $$$$$
 AsciiOne();
 Console.WriteLine("Tryck enter för att börja!");
 Console.ReadLine();
-///////////////////////////////////////////////////////////////////////////
-int active = 1;
-while (active == 1)
-{
-    Console.Clear();
-    Console.WriteLine("Vad heter du som spelar?");
+Console.Clear();
+Console.WriteLine("Vad heter du som spelar?");
     string name = Console.ReadLine().ToLower();
     while (name.Length == 0)
     {
@@ -173,6 +169,12 @@ while (active == 1)
         Console.WriteLine("Vad heter du som spelar?");
         name = Console.ReadLine().ToLower();
     }
+///////////////////////////////////////////////////////////////////////////
+int wins = 0;
+int active = 1;
+while (active == 1)
+{
+    Console.Clear();
     int num = rnd.Next(1, 4);
     string oppName = OpponentName(num);
     Console.Clear();
@@ -209,11 +211,13 @@ while (active == 1)
         Console.Clear();
         if (winCheck == 1){
             Console.WriteLine("Grattis "+ char.ToUpper(name[0]) + name.Substring(1) + ", du vann!");
+            wins += 1;
         }
         else{
             Console.WriteLine($"Tyvärr " + char.ToUpper(name[0]) + name.Substring(1) + ", du förlorade!");
         };
     }
+    Console.WriteLine($"Du har vunnit {wins} gånger!");
     Console.WriteLine("Vill du försöka igen? [y/n]");
     string restart = Console.ReadLine().ToLower();
     while (restart != "y" && restart != "n"){
