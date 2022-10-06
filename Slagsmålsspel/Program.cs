@@ -34,7 +34,7 @@ static int Fight(int health, int opphealth, int firststrike)
     while (health > 0){
         Console.WriteLine("Du går till attack!");
         Console.WriteLine("Välj alternativ nedan.");
-        Console.WriteLine("[A] Slag (20-30 damage)   [B] Spark (10-40 damage)  [C] Knä (0-50 damage)");
+        Console.WriteLine("[A] Slag (20-30 damage)   [B] Spark (10-40 damage)  [C] Knä (1-50 damage)");
         string attack = Console.ReadLine().ToLower();
         while (attack != "a" && attack != "b" && attack != "c"){
             Console.WriteLine("Du måste välja antingen a, b eller c.");
@@ -50,7 +50,7 @@ static int Fight(int health, int opphealth, int firststrike)
             Console.WriteLine("Du sparkar din motståndare!");
         }
         if (attack == "c"){
-            damage = hit.Next(0, 51);
+            damage = hit.Next(1, 51);
             Console.WriteLine("Du knäar din motståndare!");
         }
         int crit = hit.Next(1, 16);
@@ -74,11 +74,39 @@ static int Fight(int health, int opphealth, int firststrike)
         else{
             break;
         }
-        Console.WriteLine("Din motståndare attackerar!");
-        damage = hit.Next(1, 41);
+        int oppattack = hit.Next(1, 4);
+        if (oppattack == 1){
+            damage = hit.Next(20, 31);
+            Console.WriteLine("Din motståndare slår dig!");
+        }
+        if (oppattack == 2){
+            damage = hit.Next(10, 41);
+            Console.WriteLine("Din motståndare sparkar dig!");
+        }
+        if (oppattack == 3){
+            damage = hit.Next(1, 51);
+            Console.WriteLine("Din motståndare knäar dig!");
+        }
+        crit = hit.Next(1, 16);
+        if (crit == 5){
+            Console.WriteLine("Kritisk träff!");
+            Console.WriteLine("Din motståndare knockar dig!");
+            health = 0;
+        }
+        miss = hit.Next(1, 6);
+        if (miss == 5){
+            Console.WriteLine("Din motståndare missade!");
+            damage = 0;
+        }
+        
         Console.WriteLine($"Det gjorde {damage} skada!");
         health -= damage;
-        Console.WriteLine($"Du har nu {health} hp.");
+        if (health > 0){
+            Console.WriteLine($"Du har nu {health} hp.");
+        }
+        else{
+            Console.WriteLine("Du har nu 0 hp.");
+        }
         Console.WriteLine("Tryck enter för att fortsätta");
         Console.ReadLine();
     }
