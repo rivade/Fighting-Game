@@ -3,15 +3,15 @@ static string OpponentName(int opponent)
 {
     if (opponent == 1)
     {
-        return "Michael";
+        return "Tyler Durden";
     }
     else if (opponent == 2)
     {
-        return "Daniel";
+        return "Narrator";
     }
     else
     {
-        return "Harry";
+        return "Robert Paulson";
     }
 }
 static int Fight(int health, int opphealth, int firststrike, string name, string oppName)
@@ -174,7 +174,7 @@ while (active == 1)
     Console.Clear();
     Console.WriteLine("Du är ute och går på promenad, när någon kommer fram till dig.");
     Console.WriteLine($"{oppName}: Hörru grabben, vart tror du att du är påväg");
-    Console.WriteLine("Vill du börja? [y/n] ");
+    Console.WriteLine("Vill du slå först? [y/n] ");
     string begin = Console.ReadLine().ToLower();
     while (begin != "y" && begin != "n")
     {
@@ -224,6 +224,7 @@ while (active == 1)
     }
 }
 ///////////////////////////////////////////////////////////////////////////
+Console.WriteLine();
 Console.WriteLine("Tack för att du spelade!");
 Console.WriteLine("Tryck enter för att stänga programmet.");
 Console.ReadLine();
