@@ -224,7 +224,7 @@ while (active == 1)
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-Console.WriteLine();
+Console.Clear();
 Console.WriteLine("Tack för att du spelade!");
 Console.WriteLine("Tryck enter för att stänga programmet.");
 Console.ReadLine();
